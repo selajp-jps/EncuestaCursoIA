@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Encuesta – IA en la Educación Superior</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body{background:#e0f7fa;font-family:'Poppins',sans-serif;}
+    .card{border:none;border-radius:1rem;box-shadow:0 8px 25px rgba(0,0,0,.1);background:#fff8e1;}
+    .btn-primary{background:#512da8;border:none;border-radius:.5rem;}
+    .btn-primary:hover{background:#311b92;}
+    .form-check-input{width:1.3em;height:1.3em;accent-color:#512da8;cursor:pointer;}
+    .form-check-label{cursor:pointer;margin-left:.4em;}
+    /* Opcional: achicar desplegables para que no ocupen tanto */
+    select.form-select{max-width:320px;}
+  </style>
+</head>
+<body class="py-5">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-12 col-lg-8">
+        <div class="card p-4">
+          <h4 class="mb-4 text-center">Encuesta de satisfacción<br><small class="text-muted">Curso "Inteligencia Artificial en la Educación Superior"</small></h4>
+
+          <form id="encuesta">
+            <!-- 1. Claridad -->
+            <label class="fw-bold">1. Los contenidos fueron claros, pertinentes y relevantes para mi labor docente.</label>
+            <select name="p1_claridad" class="form-select mb-3" required>
+              <option value="" disabled selected>Elegí una opción</option>
+              <option value="1">1 - Muy en desacuerdo</option>
+              <option value="2">2 - En desacuerdo</option>
+              <option value="3">3 - Ni de acuerdo ni en desacuerdo</option>
+              <option value="4">4 - De acuerdo</option>
+              <option value="5">5 - Muy de acuerdo</option>
+            </select>
+
+            <!-- 2. Objetivos -->
+            <label class="fw-bold">2. ¿Se cumplieron los objetivos del curso?</label>
+            <div class="mb-3">
+              <div class="form-check"><input class="form-check-input" type="radio" name="p2_objetivos" value="Sí, completamente" required><label class="form-check-label">Sí, completamente</label></div>
+              <div class="form-check"><input class="form-check-input" type="radio" name="p2_objetivos" value="Sí, en gran parte"><label class="form-check-label">Sí, en gran parte</label></div>
+              <div class="form-check"><input class="form-check-input" type="radio" name="p2_objetivos" value="Parcialmente"><label class="form-check-label">Parcialmente</label></div>
+              <div class="form-check"><input class="form-check-input" type="radio" name="p2_objetivos" value="No, no se cumplieron"><label class="form-check-label">No, no se cumplieron</label></div>
+            </div>
+
+            <!-- 3. Módulos útiles (casillas) -->
+            <label class="fw-bold">3. ¿Qué módulos le resultaron más útiles? (Podés marcar varios)</label>
+            <div class="mb-3">
+              <div class="form-check"><input class="form-check-input" type="checkbox" name="p3_modulos" value="Módulo 1: Introducción a la IA"><label class="form-check-label">Módulo 1: Introducción a la IA</label></div>
+              <div class="form-check"><input class="form-check-input" type="checkbox" name="p3_modulos" value="Módulo 2: Creación de contenidos educativos con IA"><label class="form-check-label">Módulo 2: Creación de contenidos educativos con IA</label></div>
+              <div class="form-check"><input class="form-check-input" type="checkbox" name="p3_modulos" value="Módulo 3: Planificación con IA"><label class="form-check-label">Módulo 3: Planificación con IA</label></div>
+              <div class="form-check"><input class="form-check-input" type="checkbox" name="p3_modulos" value="Módulo 4: Actividades y evaluaciones con IA"><label class="form-check-label">Módulo 4: Actividades y evaluaciones con IA</label></div>
+              <div class="form-check"><input class="form-check-input" type="checkbox" name="p3_modulos" value="Módulo 5: Ética y desafíos de la IA"><label class="form-check-label">Módulo 5: Ética y desafíos de la IA</label></div>
+            </div>
+
+            <!-- 4. Metodología (DESPLEGABLE) -->
+            <label class="fw-bold">4. Valoración de la combinación sincrónica/asincrónica</label>
+            <select name="p4_metodologia" class="form-select mb-3" required>
+              <option value="" disabled selected>Elegí una opción</option>
+              <option value="1">1 - Ineficiente</option>
+              <option value="2">2 - Poco eficiente</option>
+              <option value="3">3 - Aceptable</option>
+              <option value="4">4 - Eficiente</option>
+              <option value="5">5 - Muy eficiente</option>
+            </select>
+
+            <!-- 5. Recursos (DESPLEGABLE) -->
+            <label class="fw-bold">5. Los recursos (guías, videos, etc.) fueron útiles.</label>
+            <select name="p5_recursos" class="form-select mb-3" required>
+              <option value="" disabled selected>Elegí una opción</option>
+              <option value="1">1 - Muy en desacuerdo</option>
+              <option value="2">2 - En desacuerdo</option>
+              <option value="3">3 - Ni de acuerdo ni en desacuerdo</option>
+              <option value="4">4 - De acuerdo</option>
+              <option value="5">5 - Muy de acuerdo</option>
+            </select>
+
+            <!-- 6. Dificultades técnicas -->
+            <label class="fw-bold">6. ¿Encontró dificultades técnicas o de navegación en Moodle?</label>
+            <div class="mb-3">
+              <div class="form-check"><input class="form-check-input" type="radio" name="p6_dificultad" value="Sí" required><label class="form-check-label">Sí</label></div>
+              <div class="form-check"><input class="form-check-input" type="radio" name="p6_dificultad" value="No"><label class="form-check-label">No</label></div>
+            </div>
+
+            <!-- 7. Preparación -->
+            <label class="fw-bold">7. ¿Se siente más preparado/a para integrar la IA en su práctica docente?</label>
+            <div class="mb-3">
+              <div class="form-check"><input class="form-check-input" type="radio" name="p7_preparacion" value="Sí, me siento preparado/a" required><label class="form-check-label">Sí, me siento preparado/a</label></div>
+              <div class="form-check"><input class="form-check-input" type="radio" name="p7_preparacion" value="Sí, pero necesito más práctica"><label class="form-check-label">Sí, pero necesito más práctica</label></div>
+              <div class="form-check"><input class="form-check-input" type="radio" name="p7_preparacion" value="No, aún tengo muchas dudas"><label class="form-check-label">No, aún tengo muchas dudas</label></div>
+              <div class="form-check"><input class="form-check-input" type="radio" name="p7_preparacion" value="No, no me siento preparado/a"><label class="form-check-label">No, no me siento preparado/a</label></div>
+            </div>
+
+            <!-- 8. Valor agregado -->
+            <label class="fw-bold">8. Principal valor agregado del curso (respuesta abierta)</label>
+            <textarea name="p8_valor" class="form-control mb-3" rows="2" placeholder="Escribí aquí..."></textarea>
+
+            <!-- 9. Sugerencias -->
+            <label class="fw-bold">9. Sugerencias para mejorar el curso</label>
+            <textarea name="p9_sugerencias" class="form-control mb-3" rows="2" placeholder="Escribí aquí..."></textarea>
+
+            <!-- 10. Recomendación -->
+            <label class="fw-bold">10. ¿Recomendaría este curso a colegas de la Universidad Nacional de Luján?</label>
+            <div class="mb-4">
+              <div class="form-check"><input class="form-check-input" type="radio" name="p10_recomienda" value="Sí, definitivamente" required><label class="form-check-label">Sí, definitivamente</label></div>
+              <div class="form-check"><input class="form-check-input" type="radio" name="p10_recomienda" value="Probablemente sí"><label class="form-check-label">Probablemente sí</label></div>
+              <div class="form-check"><input class="form-check-input" type="radio" name="p10_recomienda" value="No estoy seguro/a"><label class="form-check-label">No estoy seguro/a</label></div>
+              <div class="form-check"><input class="form-check-input" type="radio" name="p10_recomienda" value="No"><label class="form-check-label">No</label></div>
+            </div>
+
+            <button class="btn btn-primary w-100" type="submit">Enviar encuesta</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+<script>
+  const WEBHOOK = "https://tercer-n8n-n8n.gzy0bn.easypanel.host/webhook/FormularioKIMIWebhook";
+
+  document.getElementById("encuesta").addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const datos = Object.fromEntries(new FormData(e.target));
+    datos.p3_modulos = datos.p3_modulos ? (Array.isArray(datos.p3_modulos) ? datos.p3_modulos.join(", ") : datos.p3_modulos) : "";
+
+    try {
+      await fetch(WEBHOOK, {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify(datos)
+      });
+      alert("¡Encuesta enviada! Gracias por tu tiempo.");
+      e.target.reset();
+    } catch (err) {
+      alert("Error al enviar: " + err);
+    }
+  });
+</script>
+</html>
