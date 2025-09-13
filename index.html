@@ -60,6 +60,18 @@
 
     /* 7. TEXTOS PEQUEÑOS (subtítulos) */
     small.text-muted{color:#ffeb3b!important;} /* LÍNEA A CAMBIAR - subtítulos */
+
+    /* 8. MENSAJE de YA COMPLETADO */
+    #mensajeFinal{
+      display:none;
+      background:#388e3c;        /* LÍNEA A CAMBIAR - fondo del mensaje */
+      color:#ffffff;             /* LÍNEA A CAMBIAR - texto del mensaje */
+      border-radius:.5rem;
+      padding:1rem;
+      text-align:center;
+      font-weight:500;
+      margin-top:1rem;
+    }
   </style>
 </head>
 <body class="py-5">
@@ -69,6 +81,7 @@
         <div class="card p-4">
           <h4 class="mb-4 text-center">Encuesta de satisfacción<br><small class="text-muted">Curso "Inteligencia Artificial en la Educación Superior"</small></h4>
 
+          <!-- FORMULARIO -->
           <form id="encuesta">
             <!-- 1. Claridad -->
             <label class="fw-bold">1. Los contenidos fueron claros, pertinentes y relevantes para mi labor docente.</label>
@@ -157,6 +170,11 @@
 
             <button class="btn btn-primary w-100" type="submit">Enviar encuesta</button>
           </form>
+
+          <!-- Mensaje que aparece cuando YA completó -->
+          <div id="mensajeFinal">
+            ✔ ¡Ya has enviado tu encuesta! No es necesario volver a completarla.
+          </div>
         </div>
       </div>
     </div>
@@ -164,8 +182,20 @@
 </body>
 
 <script>
+  /* ==========  BLOQUEO DE DOBLE ENVÍO  ========== */
   const WEBHOOK = "https://tercer-n8n-n8n.gzy0bn.easypanel.host/webhook/ENCIAyEDSUP";
+  const CLAVE_LOCAL = "encuestaIA_completada"; // nombre que querás
 
+  // Al cargar la página, verificamos si ya la hizo
+  window.addEventListener("DOMContentLoaded", () => {
+    if (localStorage.getItem(CLAVE_LOCAL)) {
+      // Ocultamos el formulario y mostramos mensaje
+      document.getElementById("encuesta").style.display = "none";
+      document.getElementById("mensajeFinal").style.display = "block";
+    }
+  });
+
+  // Al enviar, guardamos la "marca" en el navegador
   document.getElementById("encuesta").addEventListener("submit", async (e) => {
     e.preventDefault();
     const datos = Object.fromEntries(new FormData(e.target));
@@ -177,8 +207,12 @@
         headers: {"Content-Type": "application/json"},
         body: JSON.stringify(datos)
       });
-      alert("¡Encuesta enviada! Gracias por tu tiempo.");
-      e.target.reset();
+
+      // Marcamos como completada
+      localStorage.setItem(CLAVE_LOCAL, "1");
+      // Ocultamos formulario y mostramos mensaje
+      document.getElementById("encuesta").style.display = "none";
+      document.getElementById("mensajeFinal").style.display = "block";
     } catch (err) {
       alert("Error al enviar: " + err);
     }
