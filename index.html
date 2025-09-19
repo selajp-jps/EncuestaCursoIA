@@ -1,6 +1,5 @@
 <!doctype html>
 <html lang="es">
-
 <head>
     <meta charset="utf-8">
     <title>Encuesta – Curso IA en la Educación Superior</title>
@@ -8,99 +7,77 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         /* ==========================================================
-       COLORES - LÍNEAS A CAMBIAR
-       ========================================================== */
+           COLORES - LÍNEAS A CAMBIAR
+           ========================================================== */
 
-        /* 1. FONDO EXTERIOR (página completa) 90a955*/
+        /* 1. FONDO EXTERIOR (página completa) */
         body {
-            background: #9ab460;
-            /* LÍNEA A CAMBIAR - fondo general */
+            background: #9ab460;        /* LÍNEA A CAMBIAR - fondo general */
             font-family: 'Poppins', sans-serif;
         }
 
-        /* 2. TARJETA INTERIOR (caja del formulario) 31572c*/
+        /* 2. TARJETA INTERIOR (caja del formulario) */
         .card {
             border: none;
             border-radius: 1rem;
             box-shadow: 0 10px 30px rgba(0, 0, 0, .25);
-            background: #31572c;
-            /* LÍNEA A CAMBIAR - caja principal */
-            color: #ffffff;
-            /* LÍNEA A CAMBIAR - texto dentro de la caja */
+            background: #31572c;        /* LÍNEA A CAMBIAR - caja principal */
+            color: #ffffff;             /* LÍNEA A CAMBIAR - texto dentro de la caja */
         }
 
         /* 3. TÍTULOS y SUBTÍTULOS de la tarjeta */
         .card h4,
         .card .fw-bold {
-            color: #a7c957;
+            color: #a7c957;             /* LÍNEA A CAMBIAR - títulos */
         }
-
-        /* LÍNEA A CAMBIAR - títulos a7c957*/
 
         /* 4. BOTÓN ENVIAR */
         .btn-primary {
-            background: #388e3c;
-            /* LÍNEA A CAMBIAR - botón */
+            background: #388e3c;        /* LÍNEA A CAMBIAR - botón */
             border: none;
             border-radius: .7rem;
             font-weight: 500;
             letter-spacing: .5px;
             transition: background .3s;
         }
-
         .btn-primary:hover {
-            background: #2e7d32;
+            background: #2e7d32;        /* LÍNEA A CAMBIAR - botón hover */
         }
-
-        /* LÍNEA A CAMBIAR - botón hover */
 
         /* 5. RADIO / CHECKBOX (color de relleno) */
         .form-check-input {
             width: 1.3em;
             height: 1.3em;
-            accent-color: #66bb6a;
-            /* LÍNEA A CAMBIAR - radio/check */
+            accent-color: #66bb6a;      /* LÍNEA A CAMBIAR - radio/check */
             cursor: pointer;
         }
-
         .form-check-label {
             cursor: pointer;
             margin-left: .4em;
-            color: #ffffff;
+            color: #ffffff;             /* texto blanco */
         }
-
-        /* texto blanco */
 
         /* 6. BORDE y FOCO de los desplegables */
         select.form-select {
-            background: #ffffff;
-            /* fondo del desplegable */
-            color: #212121;
-            /* texto del desplegable */
-            border: 1px solid #66bb6a;
-            /* LÍNEA A CAMBIAR - borde */
+            background: #ffffff;        /* fondo del desplegable */
+            color: #212121;             /* texto del desplegable */
+            border: 1px solid #66bb6a;  /* LÍNEA A CAMBIAR - borde */
             max-width: 320px;
         }
-
         select.form-select:focus {
-            box-shadow: 0 0 0 .2rem rgba(56, 142, 60, .25);
-            /* LÍNEA A CAMBIAR - foco */
+            box-shadow: 0 0 0 .2rem rgba(56, 142, 60, .25); /* LÍNEA A CAMBIAR - foco */
         }
 
         /* 7. TEXTOS PEQUEÑOS (subtítulos) */
         small.text-muted {
-            color: #c2bd96 !important;
+            color: #c2bd96 !important;  /* LÍNEA A CAMBIAR - subtítulos */
         }
-
-        /* LÍNEA A CAMBIAR - subtítulos */
 
         /* 8. MENSAJE de YA COMPLETADO */
         #mensajeFinal {
             display: none;
-            background: #388e3c;
-            /* LÍNEA A CAMBIAR - fondo del mensaje */
-            color: #ffffff;
-            /* LÍNEA A CAMBIAR - texto del mensaje */
+            background: #388e3c;        /* LÍNEA A CAMBIAR - fondo del mensaje */
+            color: #ffffff;             /* LÍNEA A CAMBIAR - texto del mensaje */
             border-radius: .5rem;
             padding: 1rem;
             text-align: center;
@@ -192,7 +169,7 @@
                         </select>
 
                         <!-- 6. Dificultades técnicas -->
-                        <label class="fw-bold">6. ¿Encontró dificultades técnicas o de navegación en Moodle?</label>
+                        <label class="fw-bold">6. ¿Encontraste dificultades técnicas o de navegación en Moodle?</label>
                         <div class="mb-3">
                             <div class="form-check"><input class="form-check-input" type="radio" name="p6_dificultad"
                                     value="Sí" required><label class="form-check-label">Sí</label></div>
@@ -219,19 +196,19 @@
                         </div>
 
                         <!-- 8. Valor agregado -->
-                        <label class="fw-bold">8. ¿Podes describir el principal valor agregado del curso? (respuesta
+                        <label class="fw-bold">8. ¿Podés describir el principal valor agregado del curso? (respuesta
                             abierta)</label>
                         <textarea name="p8_valor" class="form-control mb-3" rows="2"
                             placeholder="Escribí aquí..."></textarea>
 
                         <!-- 9. Sugerencias -->
-                        <label class="fw-bold">9. ¿Que sugerencias nos harías para mejorar el curso? (respuesta
+                        <label class="fw-bold">9. ¿Qué sugerencias nos harías para mejorar el curso? (respuesta
                             abierta)</label>
                         <textarea name="p9_sugerencias" class="form-control mb-3" rows="2"
                             placeholder="Escribí aquí..."></textarea>
 
                         <!-- 10. Recomendación -->
-                        <label class="fw-bold">10. ¿Recomendaría este curso a otros colegas docentes?</label>
+                        <label class="fw-bold">10. ¿Recomendarías este curso a otros colegas docentes?</label>
                         <div class="mb-4">
                             <div class="form-check"><input class="form-check-input" type="radio" name="p10_recomienda"
                                     value="Sí, definitivamente" required><label class="form-check-label">Sí,
@@ -244,6 +221,17 @@
                             </div>
                             <div class="form-check"><input class="form-check-input" type="radio" name="p10_recomienda"
                                     value="No"><label class="form-check-label">No</label></div>
+                        </div>
+
+                        <!-- 11. Boletín de novedades -->
+                        <label class="fw-bold">11. ¿Te interesaría recibir algún boletín de novedades sobre temas de Tecnología Educativa?</label>
+                        <div class="mb-4">
+                            <div class="form-check"><input class="form-check-input" type="radio" name="p11_boletin"
+                                    value="No me interesa" required><label class="form-check-label">No me interesa</label></div>
+                            <div class="form-check"><input class="form-check-input" type="radio" name="p11_boletin"
+                                    value="Sí, me interesa, con una frecuencia quincenal"><label class="form-check-label">Sí, me interesa, con una frecuencia quincenal</label></div>
+                            <div class="form-check"><input class="form-check-input" type="radio" name="p11_boletin"
+                                    value="Sí, me interesa, con una frecuencia mensual"><label class="form-check-label">Sí, me interesa, con una frecuencia mensual</label></div>
                         </div>
 
                         <button class="btn btn-primary w-100" type="submit">Enviar encuesta</button>
@@ -296,5 +284,4 @@
         }
     });
 </script>
-
 </html>
